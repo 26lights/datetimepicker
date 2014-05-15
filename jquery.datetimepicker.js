@@ -460,7 +460,12 @@
 					if( _options.weekends && $.isArray(_options.weekends) && _options.weekends.length ){
 						options['weekends'] = $.extend(true,[],_options.weekends);
 					}
-					
+
+					if(options.setDateTime) {
+						_xdsoft_datetime.setCurrentTime(new Date(options.setDateTime));
+						input.val( _xdsoft_datetime.str() );
+					}
+
 					if( (options.open||options.opened)&&(!options.inline) ) {
 						input.trigger('open.xdsoft');
 					}
